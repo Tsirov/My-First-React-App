@@ -3,34 +3,34 @@
 
 const Create = () => {
     return (
-        <section class="create">
+        <section className="create">
             <form action="#" method="post">
                 <fieldset>
                     <legend>Add new Pet</legend>
-                    <p class="field">
+                    <p className="field">
                         <label for="name">Name</label>
-                        <span class="input">
+                        <span className="input">
                             <input type="text" name="name" id="name" placeholder="Name" />
-                            <span class="actions"></span>
+                            <span className="actions"></span>
                         </span>
                     </p>
-                    <p class="field">
+                    <p className="field">
                         <label for="description">Description</label>
-                        <span class="input">
+                        <span className="input">
                             <textarea rows="4" cols="45" type="text" name="description" id="description" placeholder="Description"></textarea>
-                            <span class="actions"></span>
+                            <span className="actions"></span>
                         </span>
                     </p>
-                    <p class="field">
+                    <p className="field">
                         <label for="image">Image</label>
-                        <span class="input">
+                        <span className="input">
                             <input type="text" name="imageURL" id="image" placeholder="Image" />
-                            <span class="actions"></span>
+                            <span className="actions"></span>
                         </span>
                     </p>
-                    <p class="field">
+                    <p className="field">
                         <label for="category">Category</label>
-                        <span class="input">
+                        <span className="input">
                             <select type="text" name="category">
                                 <option>Cat</option>
                                 <option>Dog</option>
@@ -38,10 +38,10 @@ const Create = () => {
                                 <option>Reptile</option>
                                 <option>Other</option>
                             </select>
-                            <span class="actions"></span>
+                            <span className="actions"></span>
                         </span>
                     </p>
-                    <input class="button" type="submit" class="submit" value="Add Pet" />
+                    <input className="button" type="submit" className="submit" value="Add Pet" />
                 </fieldset>
             </form>
         </section>

@@ -1,7 +1,25 @@
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
-const Header = () => {
+const Header = ({ isAuthenticated, user }) => {
+    let guestNavigation = (
+        <section className="navbar-anonymous">
+            <ul>
+                <li><Link to="/register"><i className="fas fa-user-plus"></i> Register</Link></li>
+                <li><Link to="/login"><i className="fas fa-sign-in-alt"></i> Login</Link></li>
+            </ul>
+        </section>
+    );
+
+    let userNavigation = (
+        <div className="second-bar">
+            <ul>
+                <li>Welcome, {user}!</li>
+                <li><Link to="#"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
+            </ul>
+        </div>
+    );
+
     return (
         <header id="site-header">
             <nav className="navbar">
@@ -12,19 +30,10 @@ const Header = () => {
                         <Link className="button" to="/myPets">My Pets</Link>
                         <Link className="button" to="/create">Add Pet</Link>
                     </div>
-                    <div className="second-bar">
-                        <ul>
-                            <li>Welcome, Peret!</li>
-                            <li><Link to="#"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
-                        </ul>
-                    </div>
+                    {isAuthenticated ? userNavigation : guestNavigation}
+                    
                 </section>
-                <section className="navbar-anonymous">
-                    <ul>
-                        <li><Link to="/register"><i className="fas fa-user-plus"></i> Register</Link></li>
-                        <li><Link to="/login"><i className="fas fa-sign-in-alt"></i> Login</Link></li>
-                    </ul>
-                </section>
+               
             </nav>
         </header>
     );
