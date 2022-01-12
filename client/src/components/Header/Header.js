@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 
 
 const Header = ({ isAuthenticated, user }) => {
+    
+    console.log('Header',isAuthenticated);
     let guestNavigation = (
         <section className="navbar-anonymous">
             <ul>
@@ -15,7 +17,7 @@ const Header = ({ isAuthenticated, user }) => {
         <div className="second-bar">
             <ul>
                 <li>Welcome, {user}!</li>
-                <li><Link to="#"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
+                <li><Link to="/logout"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
             </ul>
         </div>
     );

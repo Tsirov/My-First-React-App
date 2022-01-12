@@ -1,11 +1,28 @@
 
+import { useNavigate } from 'react-router-dom';
+import * as authService from '../../services/authServices.js/authServices';
 
 
+const Register = ({onLogin}) => {
+    const navigate = useNavigate();
 
-const Register = () => {
+    function onSubmitHandler(e) {
+        e.preventDefault();
+
+        let formData = new FormData(e.target);
+
+        let username = formData.get('username');
+        let password = formData.get('password');
+
+        authService.register(username);
+        onLogin(username);
+        
+        navigate('/'); //this is like redirect ( after login the user i want to navigate this user to page "/")
+    }
+
     return (
         <section className="register">
-            <form action="#" method="post">
+            <form onSubmit={onSubmitHandler} method="POST">
                 <fieldset>
                     <legend>Register</legend>
                     <p className="field">

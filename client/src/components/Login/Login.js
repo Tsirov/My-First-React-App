@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authServices.js/authServices';
 
-const Login = (onLogin) => {
-    console.log(onLogin);
+const Login = ({onLogin}) => {
     const navigate = useNavigate();
 
     const onLoginHandler = (e) => {

@@ -1,6 +1,15 @@
-export const login = (username) => {
-    console.log('login method', username);
+export const register = (username) => {
     localStorage.setItem("username", username);
+    return;
+};
+
+export const login = (username) => {
+    localStorage.setItem("username", username);
+    return;
+};
+
+export const logout = () => {
+    localStorage.removeItem("username");
     return;
 };
 
@@ -9,6 +18,7 @@ export const getUser = () => {
 
     return username;
 };
+
 
 export const isAuthenticated = () => {
     return Boolean(getUser());

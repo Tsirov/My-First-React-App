@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer/Footer';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Register from './components/Register';
 import MyPets from './components/MyPets';
 import Create from './components/Create';
@@ -31,6 +32,13 @@ function App() {
         })
     }
 
+    const onLogout = () => {
+        setUserInfo({
+            isAuthenticated: false,
+            user:''
+        })
+    }
+
     return (
         <div id="container">
             <Header {...userInfo}/>
@@ -39,7 +47,8 @@ function App() {
             <Routes >
                 <Route path="/" element={<Dashboard />}  />
                 <Route path="/login" element={ <Login onLogin={onLogin}/>}  />
-                <Route path="/register" element={<Register />}  />
+                <Route path="/logout" element={ <Logout onLogout={onLogout}/>}  />
+                <Route path="/register" element={<Register onLogin={onLogin}/>}  />
                 <Route path="/myPets" element={<MyPets />}  />
                 <Route path="/create" element={<Create />}  />
                
