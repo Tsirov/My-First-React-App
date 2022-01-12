@@ -10,6 +10,7 @@ import Logout from './components/Logout';
 import Register from './components/Register';
 import MyPets from './components/MyPets';
 import Create from './components/Create';
+import Details from './components/Details';
 //here we need to call authService where we are calling bellow
 import * as authService from './services/authServices.js/authServices';
 
@@ -45,7 +46,8 @@ function App() {
 
 
             <Routes >
-                <Route path="/" element={<Dashboard />}  />
+                <Route path="/dashboard/:id" element={<Dashboard />}  />
+                <Route path="/pets/:id" element={<Details />}  />
                 <Route path="/login" element={ <Login onLogin={onLogin}/>}  />
                 <Route path="/logout" element={ <Logout onLogout={onLogout}/>}  />
                 <Route path="/register" element={<Register onLogin={onLogin}/>}  />

@@ -5,7 +5,7 @@ const Navigation = () => {
     return (
         <nav className="navbar" >
             <ul>
-                <li><Link to="/categories/all">All</Link></li>
+                <li><Link to="/all">All</Link></li>
                 <li><Link to="/categories/cat">Cats</Link></li>
                 <li><Link to="/categories/dog">Dogs</Link></li>
                 <li><Link to="/categories/parrot">Parrots</Link></li>

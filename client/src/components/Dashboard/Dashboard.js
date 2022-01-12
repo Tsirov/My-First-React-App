@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 import Navigation from './Navigation/Navigation';
 import PetCard from './petCard';
@@ -6,15 +8,23 @@ import PetCard from './petCard';
 import * as petService from '../../services/petServices';
 ;
 const Dashboard = () => {
+    let category = useParams();
+    console.log(category);
     let [pets, setPets] = useState([]);
 
     useEffect( async () => {
         let result = await petService.getAll();
-        setPets(pets = result);
+
+        if (result == null) {
+            pets = []
+        } else {
+            setPets(pets = result);
             // petService.getAll()
             //     .then(result => {
             //         setPets(pets = result)
             //     })
+        }
+       
     },[])
 
     return (

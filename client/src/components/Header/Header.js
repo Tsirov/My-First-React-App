@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Header = ({ isAuthenticated, user }) => {
     
-    console.log('Header',isAuthenticated);
     let guestNavigation = (
         <section className="navbar-anonymous">
             <ul>
@@ -28,7 +27,7 @@ const Header = ({ isAuthenticated, user }) => {
 
                 <section className="navbar-dashboard">
                     <div className="first-bar">
-                        <Link to="/">Dashboard</Link>
+                        <Link to="/dashboard">Dashboard</Link>
                         <Link className="button" to="/myPets">My Pets</Link>
                         <Link className="button" to="/create">Add Pet</Link>
                     </div>
