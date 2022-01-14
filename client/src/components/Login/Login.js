@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import * as authService from '../../services/authServices.js/authServices';
 
-const Login = ({onLogin}) => {
+const Login = ({ onLogin }) => {
     const navigate = useNavigate();
 
     const onLoginHandler = (e) => {
@@ -9,24 +9,31 @@ const Login = ({onLogin}) => {
 
         let formData = new FormData(e.target);
 
-        let username = formData.get('username');
+        let email = formData.get('email');
         let password = formData.get('password');
 
-        authService.login(username);
-        onLogin(username);
-        
-        navigate('/'); //this is like redirect ( after login the user i want to navigate this user to page "/")
+        console.log(email, password);
+        authService.login(email, password)
+            .then((authData) => {
+                onLogin(authData);
+                navigate('/dashboard'); //this is like redirect ( after login the user i want to navigate this user to page "/")
+
+            }).catch(err => {
+                console.log(err);
+            })
+
+
     }
 
     return (
         <section className="login">
-            <form id="login-form" onSubmit={onLoginHandler} method='POST'>
+            <form id="login-form" onSubmit={ onLoginHandler } method='POST'>
                 <fieldset>
                     <legend>Login</legend>
                     <p className="field">
-                        <label for="username">Username</label>
+                        <label for="email">Email</label>
                         <span className="input">
-                            <input type="text" name="username" id="username" placeholder="Username" />
+                            <input type="text" name="email" id="username" placeholder="Username" />
                             <span className="actions"></span>
                             <i className="fas fa-user"></i>
                         </span>
