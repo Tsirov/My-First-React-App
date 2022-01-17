@@ -5,12 +5,12 @@ const Navigation = () => {
     return (
         <nav className="navbar" >
             <ul>
-                <li><Link to="/all">All</Link></li>
-                <li><Link to="/categories/cat">Cats</Link></li>
-                <li><Link to="/categories/dog">Dogs</Link></li>
-                <li><Link to="/categories/parrot">Parrots</Link></li>
-                <li><Link to="/categories/reptile">Reptiles</Link></li>
-                <li><Link to="/categories/Other">Other</Link></li>
+                <li><Link to="/pets/all">All</Link></li>
+                <li><Link to="/pets/cats">Cats</Link></li>
+                <li><Link to="/pets/dogs">Dogs</Link></li>
+                <li><Link to="/pets/parrots">Parrots</Link></li>
+                <li><Link to="/pets/reptiles">Reptiles</Link></li>
+                <li><Link to="/pets/other">Other</Link></li>
 
                 {/* <li><NavLink activeClassName="nav-link-selected" to="/categories/all">All</NavLink></li>
                 <li><NavLink activeClassName="nav-link-selected" to="/categories/cat">Cats</NavLink></li>

@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import  AuthContext  from '../../contexts/AuthContext';
+// import { AuthContext } from '../../contexts/AuthContext';
 
 
-const Header = ({ isAuthenticated, user }) => {
+
+const Header = () => {
+    const { user } = useContext(AuthContext);
     
     let guestNavigation = (
         <section className="navbar-anonymous">
@@ -15,7 +20,7 @@ const Header = ({ isAuthenticated, user }) => {
     let userNavigation = (
         <div className="second-bar">
             <ul>
-                <li>Welcome, {user}!</li>
+                <li>Welcome, {user.email}!</li>
                 <li><Link to="/logout"><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
             </ul>
         </div>
@@ -31,7 +36,7 @@ const Header = ({ isAuthenticated, user }) => {
                         <Link className="button" to="/myPets">My Pets</Link>
                         <Link className="button" to="/create">Add Pet</Link>
                     </div>
-                    {isAuthenticated ? userNavigation : guestNavigation}
+                    {user.email ? userNavigation : guestNavigation}
                     
                 </section>
                

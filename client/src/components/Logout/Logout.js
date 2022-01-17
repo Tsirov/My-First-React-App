@@ -1,14 +1,17 @@
+import {useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as authService from '../../services/authServices.js/authServices';
+import * as authService from '../../services/authServices/authServices';
 
 const Logout = ({onLogout}) => {
     const navigate = useNavigate();
     
-    onLogout();
-
-    authService.logout();
-
-    navigate('/login');
+    useEffect(() => {
+        authService.logout()
+            .then(() => {
+                onLogout();
+                navigate('/login');
+            })
+    }, [])
 
     return null;
     

@@ -9,7 +9,6 @@ import * as petService from '../../services/petServices';
 ;
 const Dashboard = () => {
     let category = useParams();
-    console.log(category);
     let [pets, setPets] = useState([]);
 
     useEffect( async () => {
